@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ SEO META ============ -->
+  <title>Ngorongoro Crater | Kazana Safaris Tours — Luxury Tanzania Safaris</title>
+  <meta name="description" content="Discover Ngorongoro Crater with Kazana Safaris Tours — a collapsed volcanic caldera holding one of Africa's densest concentrations of wildlife, including the rare black rhino. Plan a private luxury safari to this UNESCO World Heritage Site." />
+  <meta name="keywords" content="Ngorongoro Crater, black rhino, Tanzania safari, UNESCO World Heritage, Olduvai Gorge, Big Five, Kazana Safaris" />
+  <meta name="author" content="Kazana Safaris Tours" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ngorongoro Crater | Kazana Safaris Tours" />
+  <meta property="og:description" content="A collapsed volcanic caldera cradling one of Africa's densest wildlife populations. Plan your private Ngorongoro journey." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1600" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+/* ============================================================
+   KAZANA SAFARIS TOURS — Shared Design Tokens & Base
+   (same system as the homepage, extended for destination pages)
+============================================================= */
+
+:root {
+  --forest: #16302A;
+  --forest-dark: #0D1F1A;
+  --olive: #3A4028;
+  --charcoal: #24211D;
+  --ivory: #FAF6EE;
+  --beige: #EAE0C9;
+  --sand: #D8C6A0;
+  --brown: #6B4A34;
+  --gold: #C7A052;
+  --gold-light: #E4C784;
+  --rust: #A3502E;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  --max-width: 1360px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--forest-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+em { font-style: italic; color: var(--gold); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+.eyebrow--light { color: var(--gold-light); }
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.05rem 2.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), background 0.45s var(--ease), color 0.45s var(--ease);
+}
+.btn--small { padding: 0.7rem 1.4rem; font-size: 0.7rem; }
+.btn--gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--forest-dark);
+  box-shadow: 0 8px 24px -8px rgba(199, 160, 82, 0.55);
+}
+.btn--gold:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(199, 160, 82, 0.7); }
+.btn--ghost {
+  border: 1px solid rgba(250, 246, 238, 0.55);
+  color: var(--ivory);
+  backdrop-filter: blur(6px);
+  background: rgba(250, 246, 238, 0.04);
+}
+.btn--ghost:hover { background: rgba(250, 246, 238, 0.14); transform: translateY(-3px); }
+.btn--outline-dark {
+  border: 1px solid rgba(22,48,42,0.3);
+  color: var(--forest-dark);
+}
+.btn--outline-dark:hover { background: rgba(22,48,42,0.06); transform: translateY(-3px); }
+
+/* ---- Nav ---- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 1.6rem 0;
+  transition: background 0.5s var(--ease), padding 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.nav.is-scrolled {
+  background: rgba(22, 48, 42, 0.9);
+  backdrop-filter: blur(14px);
+  padding: 0.9rem 0;
+  box-shadow: 0 10px 30px -18px rgba(0,0,0,0.5);
+}
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo { display: flex; flex-direction: column; line-height: 1; }
+.nav__logo-mark { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ivory); }
+.nav__logo-sub { font-size: 0.55rem; letter-spacing: 0.32em; color: var(--gold-light); margin-top: 0.25rem; }
+.nav__links { display: flex; gap: 2.4rem; }
+.nav__links a {
+  font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ivory); position: relative; padding-bottom: 4px;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.4s var(--ease);
+}
+.nav__links a:hover::after, .nav__links a.is-active::after { width: 100%; }
+.nav__actions { display: flex; align-items: center; gap: 1.4rem; }
+.nav__burger { display: none; flex-direction: column; gap: 5px; width: 26px; }
+.nav__burger span { height: 1.5px; background: var(--ivory); border-radius: 2px; transition: transform 0.4s var(--ease), opacity 0.4s var(--ease); }
+.nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 490; background: var(--forest-dark);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transform: translateY(-12px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), visibility 0.5s;
+}
+.mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 1.8rem; text-align: center; }
+.mobile-menu a { font-family: var(--font-display); font-size: 1.7rem; color: var(--ivory); }
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: rgba(250,246,238,0.75);
+}
+.breadcrumb a:hover { color: var(--gold-light); }
+.breadcrumb span { opacity: 0.5; }
+.breadcrumb .current { color: var(--gold-light); }
+
+/* ---- Destination Hero ---- */
+.dhero {
+  position: relative;
+  height: 92svh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.dhero__media { position: absolute; inset: 0; z-index: 0; }
+.dhero__img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); animation: heroZoom 16s ease-out forwards; }
+@keyframes heroZoom { to { transform: scale(1); } }
+.dhero__gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,31,26,0.35) 0%, rgba(13,31,26,0.35) 40%, rgba(13,31,26,0.92) 100%);
+}
+.dhero__top {
+  position: relative; z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 6.5rem var(--space-md) 0;
+}
+.dhero__content {
+  position: relative; z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--space-md) var(--space-xl);
+  color: var(--ivory);
+}
+.dhero__coord {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+.dhero__title {
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  color: var(--ivory);
+  max-width: 900px;
+}
+.dhero__title em { color: var(--gold-light); }
+.dhero__subtitle {
+  margin-top: var(--space-sm);
+  max-width: 620px;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 300;
+  color: rgba(250,246,238,0.85);
+}
+
+/* ---- Facts bar ---- */
+.facts {
+  background: var(--forest);
+  color: var(--ivory);
+}
+.facts__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.fact { border-left: 1px solid rgba(250,246,238,0.18); padding-left: var(--space-sm); }
+.fact:first-child { border-left: none; padding-left: 0; }
+.fact__label {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.35rem;
+}
+.fact__value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+/* ---- Section head reuse ---- */
+.section-head {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.section-head h2 { max-width: 620px; }
+.section-head--light .eyebrow, .section-head--light h2 { color: var(--ivory); }
+
+/* ---- Story / intro-style split ---- */
+.story { padding: var(--space-2xl) 0; }
+.story__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.story__copy h2 { margin-bottom: var(--space-md); }
+.story__text { color: #4b463d; font-weight: 300; font-size: 1.05rem; margin-bottom: var(--space-sm); max-width: 560px; }
+.story__image { position: relative; }
+.story__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: var(--radius-lg); }
+.story__image-frame {
+  position: absolute; top: 20px; right: -20px; left: 20px; bottom: -20px;
+  border: 1px solid var(--gold); border-radius: var(--radius-lg); z-index: -1;
+}
+.story__quote {
+  margin-top: var(--space-lg);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--forest);
+  max-width: 500px;
+}
+
+/* ---- Highlights grid ---- */
+.highlights { padding-bottom: var(--space-2xl); }
+.highlight-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.highlight-card {
+  background: var(--beige);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.highlight-card:hover { transform: translateY(-8px); box-shadow: 0 24px 40px -24px rgba(22,48,42,0.35); }
+.highlight-card__num {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--rust);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+.highlight-card h3 { margin-bottom: 0.5rem; }
+.highlight-card p { font-size: 0.92rem; font-weight: 300; color: #56513f; }
+
+/* ---- Gallery mosaic (reused pattern) ---- */
+.gallery { padding-bottom: var(--space-2xl); }
+.gallery-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: var(--space-sm);
+}
+.gallery-tile { position: relative; border-radius: var(--radius-sm); overflow: hidden; grid-row: span 2; }
+.gallery-tile--tall { grid-row: span 3; }
+.gallery-tile--wide { grid-column: span 2; }
+.gallery-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease), filter 0.9s var(--ease); filter: grayscale(0.1); }
+.gallery-tile:hover img { transform: scale(1.06); filter: grayscale(0); }
+.gallery-tile figcaption {
+  position: absolute; left: var(--space-sm); bottom: var(--space-sm);
+  color: var(--ivory); font-family: var(--font-display); font-size: 1.05rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+}
+
+/* ---- Plan your visit ---- */
+.plan { background: var(--beige); padding: var(--space-2xl) 0; }
+.plan__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.plan-card {
+  background: var(--ivory);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.plan-card__icon { width: 38px; height: 38px; color: var(--gold); margin-bottom: var(--space-sm); }
+.plan-card h3 { margin-bottom: 0.6rem; }
+.plan-card p, .plan-card li { font-size: 0.9rem; font-weight: 300; color: #56513f; margin-bottom: 0.4rem; }
+.plan-card ul { display: flex; flex-direction: column; gap: 0.35rem; }
+.plan-card li::before { content: "— "; color: var(--gold); }
+
+/* ---- Itinerary CTA card ---- */
+.itinerary { padding-bottom: var(--space-2xl); }
+.itinerary__card {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  background: var(--forest);
+  border-radius: var(--radius-lg);
+  color: var(--ivory);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.itinerary__card h2 { color: var(--ivory); margin-bottom: var(--space-sm); }
+.itinerary__card p { color: rgba(250,246,238,0.78); font-weight: 300; max-width: 46ch; margin-bottom: var(--space-md); }
+.itinerary__meta {
+  display: flex;
+  gap: var(--space-md);
+  border-top: 1px solid rgba(250,246,238,0.18);
+  padding-top: var(--space-sm);
+}
+.itinerary__meta div span { display: block; }
+.itinerary__meta .label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.3rem; }
+.itinerary__meta .value { font-family: var(--font-display); font-size: 1.2rem; }
+.itinerary__side {
+  background: rgba(250,246,238,0.06);
+  border: 1px solid rgba(250,246,238,0.18);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.itinerary__side h3 { color: var(--ivory); font-size: 1.1rem; margin-bottom: var(--space-sm); }
+.itinerary__route { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: var(--space-md); }
+.itinerary__route div { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.88rem; color: rgba(250,246,238,0.85); }
+.itinerary__route span.day { font-family: var(--font-display); color: var(--gold-light); font-size: 1rem; min-width: 3.2rem; }
+
+/* ---- CTA banner (reused) ---- */
+.cta { position: relative; padding: var(--space-2xl) var(--space-md); text-align: center; overflow: hidden; }
+.cta__bg { position: absolute; inset: 0; }
+.cta__bg img { width: 100%; height: 100%; object-fit: cover; }
+.cta__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,31,26,0.75), rgba(13,31,26,0.92)); }
+.cta__content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+.cta__content h2 { color: var(--ivory); margin-bottom: var(--space-sm); }
+.cta__content p { color: rgba(250,246,238,0.8); margin-bottom: var(--space-lg); font-weight: 300; }
+
+/* ---- Footer (reused) ---- */
+.footer { background: var(--forest-dark); color: rgba(250,246,238,0.8); padding-top: var(--space-2xl); }
+.footer__top {
+  max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md) var(--space-xl);
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr 1.3fr; gap: var(--space-lg);
+}
+.footer__brand p { font-size: 0.88rem; font-weight: 300; margin: var(--space-sm) 0 var(--space-md); max-width: 30ch; }
+.footer__logo-mark { color: var(--ivory); }
+.footer__social { display: flex; gap: 0.8rem; }
+.footer__social a {
+  width: 36px; height: 36px; border: 1px solid rgba(250,246,238,0.25); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.footer__social svg { width: 16px; height: 16px; }
+.footer__social a:hover { border-color: var(--gold); transform: translateY(-3px); }
+.footer__col h4 {
+  font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: var(--space-sm);
+}
+.footer__col a, .footer__col p {
+  display: block; font-size: 0.88rem; font-weight: 300; margin-bottom: 0.6rem; color: rgba(250,246,238,0.75);
+}
+.footer__col a:hover { color: var(--gold-light); }
+.newsletter-form {
+  display: flex; border: 1px solid rgba(250,246,238,0.25); border-radius: 999px; overflow: hidden; margin-top: var(--space-sm);
+}
+.newsletter-form input { flex: 1; background: transparent; border: none; padding: 0.75rem 1rem; color: var(--ivory); font-size: 0.85rem; }
+.newsletter-form input::placeholder { color: rgba(250,246,238,0.45); }
+.newsletter-form button { padding: 0 1.1rem; color: var(--gold-light); font-size: 1.1rem; }
+.footer__bottom {
+  border-top: 1px solid rgba(250,246,238,0.12); padding: var(--space-md);
+  display: flex; justify-content: space-between; max-width: var(--max-width); margin: 0 auto;
+  font-size: 0.78rem; color: rgba(250,246,238,0.5);
+}
+
+/* ---- Back to top ---- */
+.back-to-top {
+  position: fixed; right: var(--space-md); bottom: var(--space-md);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--forest); color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px -10px rgba(0,0,0,0.5);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s;
+  z-index: 400;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================= */
+@media (max-width: 1080px) {
+  .footer__top { grid-template-columns: 1fr 1fr; }
+  .highlight-grid { grid-template-columns: repeat(2, 1fr); }
+  .plan__inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .nav__links { display: none; }
+  .nav__burger { display: flex; }
+  .facts__inner { grid-template-columns: repeat(2, 1fr); }
+  .fact:nth-child(3) { border-left: none; padding-left: 0; }
+  .story__inner { grid-template-columns: 1fr; }
+  .story__image { max-width: 420px; margin: 0 auto; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .itinerary__card { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  :root { --space-2xl: 6rem; --space-xl: 4.5rem; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .plan__inner { grid-template-columns: 1fr; }
+  .facts__inner { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 130px; }
+  .gallery-tile--wide { grid-column: span 2; }
+  .footer__top { grid-template-columns: 1fr; }
+  .footer__bottom { flex-direction: column; gap: 0.4rem; }
+  .itinerary__meta { flex-wrap: wrap; gap: var(--space-sm); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================= -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Kazana Safaris Tours — Home">
+        <span class="nav__logo-mark">KAZANA</span>
+        <span class="nav__logo-sub">SAFARIS TOURS</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#destinations">Destinations</a>
+        <a href="index.html#safaris">Safaris</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="index.html#contact" class="btn btn--gold btn--small">Book Safari</a>
+        <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#destinations">Destinations</a>
+      <a href="index.html#safaris">Safaris</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="btn btn--gold">Book Safari</a>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================================================
+         DESTINATION HERO
+    ============================================================= -->
+    <section class="dhero">
+      <div class="dhero__media">
+        <img
+          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2400&auto=format&fit=crop"
+          alt="View into the Ngorongoro Crater at sunrise from the rim"
+          class="dhero__img"
+        />
+        <div class="dhero__gradient"></div>
+      </div>
+
+      <div class="dhero__top">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="index.html#destinations">Destinations</a>
+          <span>/</span>
+          <span class="current">Ngorongoro</span>
+        </div>
+      </div>
+
+      <div class="dhero__content">
+        <span class="dhero__coord" data-reveal>03.2000° S, 35.5000° E &nbsp;·&nbsp; Northern Tanzania</span>
+        <h1 class="dhero__title" data-reveal>Ngorongoro</h1>
+        <p class="dhero__subtitle" data-reveal>
+          A collapsed volcanic caldera cradling one of Africa's densest
+          wildlife populations — a self-contained world, walled by its own
+          rim, where the Big Five roam a single unbroken crater floor.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUICK FACTS BAR
+    ============================================================= -->
+    <section class="facts">
+      <div class="facts__inner">
+        <div class="fact">
+          <span class="fact__label">Best Time to Visit</span>
+          <span class="fact__value">Year-Round</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label">Ideal For</span>
+          <span class="fact__value">Big Five &amp; black rhino</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label">Nearest Access</span>
+          <span class="fact__value">2 hrs from Arusha</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label">Crater Floor</span>
+          <span class="fact__value">610m below the rim</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STORY / OVERVIEW
+    ============================================================= -->
+    <section class="story" id="about">
+      <div class="story__inner">
+        <div class="story__image" data-reveal>
+          <img
+            src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?q=80&w=1400&auto=format&fit=crop"
+            alt="The Ngorongoro Crater floor seen from the forested rim"
+            loading="lazy"
+          />
+          <div class="story__image-frame"></div>
+        </div>
+
+        <div class="story__copy">
+          <p class="eyebrow" data-reveal>The Landscape</p>
+          <h2 data-reveal>A world sealed<br />inside its own walls</h2>
+          <p class="story__text" data-reveal>
+            Some three million years ago a vast volcano collapsed in on
+            itself, leaving behind the largest unbroken, unflooded volcanic
+            caldera on Earth. Its rim rises over 600 meters above a floor of
+            grassland, soda lake and acacia forest — a natural amphitheater
+            for one of the richest ecosystems in Africa.
+          </p>
+          <p class="story__text" data-reveal>
+            Because the walls are steep and the water permanent, an
+            extraordinary density of wildlife stays resident year-round,
+            including one of Tanzania's last strongholds of the critically
+            endangered black rhino. This is also a UNESCO World Heritage
+            Site, shared with the Maasai who still graze cattle on its rim.
+          </p>
+          <div class="story__quote" data-reveal>
+            "Nowhere else do you drive down into the wild rather than
+            out to meet it — the crater simply holds you inside it."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HIGHLIGHTS
+    ============================================================= -->
+    <section class="highlights">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>What Awaits</p>
+        <h2 data-reveal>Highlights of Ngorongoro</h2>
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">01</span>
+          <h3>The Crater Floor</h3>
+          <p>Descend to a self-contained ecosystem of grassland, forest and soda lake, home to an estimated 25,000 large animals year-round.</p>
+        </div>
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">02</span>
+          <h3>Black Rhino Sightings</h3>
+          <p>One of the most reliable places in Africa to see the critically endangered black rhino in its natural habitat.</p>
+        </div>
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">03</span>
+          <h3>Olduvai Gorge</h3>
+          <p>Visit the "Cradle of Mankind," where some of the oldest hominid fossils on Earth were discovered, a short drive from the crater.</p>
+        </div>
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">04</span>
+          <h3>Empakaai Crater</h3>
+          <p>A quieter, less-visited caldera holding a deep soda lake and flocks of flamingos, reached by a scenic descent on foot.</p>
+        </div>
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">05</span>
+          <h3>Maasai Communities</h3>
+          <p>Meet the Maasai who continue to graze livestock within the Conservation Area under a rare shared-use arrangement.</p>
+        </div>
+        <div class="highlight-card" data-reveal>
+          <span class="highlight-card__num">06</span>
+          <h3>Rim Forest Views</h3>
+          <p>Montane forest along the crater rim offers cool air, elephant sightings and sweeping views down onto the floor below.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALLERY
+    ============================================================= -->
+    <section class="gallery" id="gallery">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>In Pictures</p>
+        <h2 data-reveal>Inside the Caldera</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-tile gallery-tile--tall gallery-tile--wide" data-reveal>
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1400&auto=format&fit=crop" alt="Wide view into the Ngorongoro Crater at sunrise" loading="lazy" />
+          <figcaption>Sunrise Over the Rim</figcaption>
+        </figure>
+        <figure class="gallery-tile" data-reveal>
+          <img src="https://images.unsplash.com/photo-1602491453631-e2a5ad90a131?q=80&w=1200&auto=format&fit=crop" alt="A lioness resting on the crater floor grassland" loading="lazy" />
+          <figcaption>Crater Floor Prides</figcaption>
+        </figure>
+        <figure class="gallery-tile" data-reveal>
+          <img src="https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1200&auto=format&fit=crop" alt="A family of elephants walking near the crater forest" loading="lazy" />
+          <figcaption>Forest-Edge Elephants</figcaption>
+        </figure>
+        <figure class="gallery-tile gallery-tile--tall" data-reveal>
+          <img src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?q=80&w=1200&auto=format&fit=crop" alt="Flamingos on the soda lake at the crater floor" loading="lazy" />
+          <figcaption>Soda Lake Flamingos</figcaption>
+        </figure>
+        <figure class="gallery-tile" data-reveal>
+          <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?q=80&w=1200&auto=format&fit=crop" alt="Baobab and acacia trees along the crater rim" loading="lazy" />
+          <figcaption>Rim Woodlands</figcaption>
+        </figure>
+        <figure class="gallery-tile" data-reveal>
+          <img src="https://images.unsplash.com/photo-1516934024742-b461ee5a67dc?q=80&w=1200&auto=format&fit=crop" alt="Evening light over the Ngorongoro highlands" loading="lazy" />
+          <figcaption>Highland Dusk</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PLAN YOUR VISIT
+    ============================================================= -->
+    <section class="plan">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>Practical Notes</p>
+        <h2 data-reveal>Plan Your Visit</h2>
+      </div>
+
+      <div class="plan__inner">
+        <div class="plan-card" data-reveal>
+          <svg class="plan-card__icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="1.4"/><path d="M24 13v11l8 5" stroke="currentColor" stroke-width="1.4"/></svg>
+          <h3>Best Time to Go</h3>
+          <ul>
+            <li>Year-round wildlife thanks to the crater's permanent water</li>
+            <li>June–October for the clearest skies and easiest driving</li>
+            <li>January–February for a chance at cooler, quieter game drives</li>
+          </ul>
+        </div>
+        <div class="plan-card" data-reveal>
+          <svg class="plan-card__icon" viewBox="0 0 48 48" fill="none"><rect x="5" y="20" width="38" height="14" rx="3" stroke="currentColor" stroke-width="1.4"/><circle cx="14" cy="38" r="3.5" stroke="currentColor" stroke-width="1.4"/><circle cx="34" cy="38" r="3.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 20l4-8h20l6 8" stroke="currentColor" stroke-width="1.4"/></svg>
+          <h3>Getting There</h3>
+          <ul>
+            <li>2-hour drive from Arusha to the crater rim</li>
+            <li>Often combined with the Serengeti as part of a circuit</li>
+            <li>Steep descent road down to the crater floor by 4x4 only</li>
+          </ul>
+        </div>
+        <div class="plan-card" data-reveal>
+          <svg class="plan-card__icon" viewBox="0 0 48 48" fill="none"><path d="M24 4 4 14v10c0 12 8 18 20 20 12-2 20-8 20-20V14L24 4Z" stroke="currentColor" stroke-width="1.4"/><path d="M24 15v18M15 24h18" stroke="currentColor" stroke-width="1.4"/></svg>
+          <h3>What to Pack</h3>
+          <ul>
+            <li>A warm layer — the rim sits above 2,200m and gets cold</li>
+            <li>Sturdy shoes for the Empakaai crater descent on foot</li>
+            <li>Binoculars for distant rhino and cat sightings on the floor</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ITINERARY CTA
+    ============================================================= -->
+    <section class="itinerary" id="safaris">
+      <div class="itinerary__card">
+        <div>
+          <p class="eyebrow eyebrow--light" data-reveal>Suggested Journey</p>
+          <h2 data-reveal>The Ngorongoro Crater Explorer</h2>
+          <p data-reveal>
+            Three days centered on the caldera — a full day descending to the
+            crater floor in search of black rhino and resident lion, a visit
+            to Olduvai Gorge, and a rim-side lodge with views straight down
+            into the wild below.
+          </p>
+          <a href="index.html#contact" class="btn btn--gold" data-reveal>Enquire About This Itinerary</a>
+
+          <div class="itinerary__meta" data-reveal>
+            <div>
+              <span class="label">Duration</span>
+              <span class="value">3 Days</span>
+            </div>
+            <div>
+              <span class="label">Group Size</span>
+              <span class="value">Private, 2–6 guests</span>
+            </div>
+            <div>
+              <span class="label">Pace</span>
+              <span class="value">Relaxed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="itinerary__side" data-reveal>
+          <h3>Day by Day</h3>
+          <div class="itinerary__route">
+            <div><span class="day">Day 1</span> Arrive at the rim, afternoon at leisure</div>
+            <div><span class="day">Day 2</span> Full-day crater floor game drive</div>
+            <div><span class="day">Day 3</span> Olduvai Gorge visit, depart</div>
+          </div>
+          <a href="index.html#safaris" class="btn btn--ghost btn--small" style="color: var(--forest-dark); border-color: rgba(22,48,42,0.3);">View All Safaris</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CALL TO ACTION
+    ============================================================= -->
+    <section class="cta">
+      <div class="cta__bg">
+        <img src="https://images.unsplash.com/photo-1516934024742-b461ee5a67dc?q=80&w=2000&auto=format&fit=crop" alt="Silhouette of acacia trees against a fiery Tanzanian sunset" loading="lazy" />
+        <div class="cta__gradient"></div>
+      </div>
+      <div class="cta__content">
+        <p class="eyebrow eyebrow--light" data-reveal>Your Story Begins Here</p>
+        <h2 data-reveal>Descend Into Ngorongoro</h2>
+        <p data-reveal>Let us build a private itinerary around this extraordinary crater and your dates.</p>
+        <a href="index.html#contact" class="btn btn--gold" data-reveal>Begin Your Safari</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPLORE MORE DESTINATIONS
+    ============================================================= -->
+    <section class="explore-more" style="padding: var(--space-2xl) 0; background: var(--beige);">
+      <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md);">
+        <div class="section-head" style="margin-bottom: var(--space-lg);">
+          <p class="eyebrow" data-reveal>More to Explore</p>
+          <h2 data-reveal>Other Destinations</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md);">
+          <a href="serengeti.html" class="dest-card" data-reveal style="text-decoration: none;">
+            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop" alt="Serengeti plains" loading="lazy" style="height: 300px; object-fit: cover;"/>
+            <div class="dest-card__overlay">
+              <h3 style="color: var(--ivory);">Serengeti</h3>
+              <p style="color: rgba(250,246,238,0.9);">Endless plains and the Great Migration</p>
+            </div>
+          </a>
+          <a href="lakenatron.html" class="dest-card" data-reveal style="text-decoration: none;">
+            <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?q=80&w=800&auto=format&fit=crop" alt="Lake Natron" loading="lazy" style="height: 300px; object-fit: cover;"/>
+            <div class="dest-card__overlay">
+              <h3 style="color: var(--ivory);">Lake Natron</h3>
+              <p style="color: rgba(250,246,238,0.9);">Blood-red waters and flamingo breeding grounds</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="footer">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <span class="nav__logo-mark footer__logo-mark">KAZANA</span>
+        <span class="nav__logo-sub">SAFARIS TOURS</span>
+        <p>Tanzanian-owned, globally trusted. Crafting private luxury safaris since 2012.</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 8.5h2.5V5H14c-2.2 0-4 1.8-4 4v2.5H8V15h2v6h3v-6h2.4l.6-3.5H13V9c0-.5.4-1 1-1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4 4 20" stroke="currentColor" stroke-width="1.4"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M11 10l4 2-4 2v-4Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#safaris">Safaris</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Destinations</h4>
+        <a href="serengeti.html">Serengeti</a>
+        <a href="lakenatron.html">Lake Natron</a>
+        <a href="index.html#destinations">Tarangire</a>
+        <a href="index.html#destinations">Lake Manyara</a>
+        <a href="index.html#destinations">Zanzibar</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p>Kazana House, Boma Road<br />Arusha, Tanzania</p>
+        <p><a href="mailto:journeys@kazanasafaris.com">journeys@kazanasafaris.com</a></p>
+        <p><a href="tel:+255700000000">+255 700 000 000</a></p>
+      </div>
+
+      <div class="footer__col footer__newsletter">
+        <h4>Newsletter</h4>
+        <p>Field notes from the bush, twice a month.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your email address" aria-label="Email address" required />
+          <button type="submit" aria-label="Subscribe">&rarr;</button>
+        </form>
+        <p class="contact-form__note" id="newsletterNote" role="status" aria-live="polite"></p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> Kazana Safaris Tours. All rights reserved.</p>
+      <p>Handcrafted in Arusha, Tanzania.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ---- Sticky nav ---- */
+  const nav = document.getElementById("nav");
+  const backToTop = document.getElementById("backToTop");
+  const onScroll = () => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 60);
+    backToTop.classList.toggle("is-visible", window.scrollY > 700);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---- Mobile menu ---- */
+  const burger = document.getElementById("navBurger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = () => {
+    burger.setAttribute("aria-expanded", "false");
+    mobileMenu.classList.remove("is-open");
+    mobileMenu.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+  burger.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", String(isOpen));
+    mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+  mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+  /* ---- Reveal on scroll ---- */
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 90}ms`;
+    revealObserver.observe(el);
+  });
+
+  /* ---- Back to top ---- */
+  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  /* ---- Newsletter form ---- */
+  const newsletterForm = document.getElementById("newsletterForm");
+  const newsletterNote = document.getElementById("newsletterNote");
+  newsletterForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    newsletterNote.textContent = "You're on the list — see you in the bush.";
+    newsletterForm.reset();
+  });
+
+  /* ---- Footer year ---- */
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+});
+  </script>
+</body>
+</html>
