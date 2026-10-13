@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../Kazana.Logo.png" />
+
+  <!-- ============ SEO META ============ -->
+  <title>Grand Luxury Safari | 7-Day Safari | Kazana Safaris Tours</title>
+  <meta name="description" content="Grand Luxury Safari — a 7-day journey combining savanna and ocean. Experience Serengeti, Ngorongoro Crater, and Zanzibar's white sand beaches on Tanzania's most comprehensive luxury package." />
+  <meta name="keywords" content="Luxury Tanzania safari, Serengeti, Ngorongoro, Zanzibar, 7-day safari, tropical beach" />
+  <meta name="author" content="Kazana Safaris Tours" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Grand Luxury Safari | 7-Day Safari | Kazana Safaris Tours" />
+  <meta property="og:description" content="Savanna by day, ocean by night. Our fullest expression of Tanzania, closed out barefoot on white sand." />
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_National_Park_15_-_landscape.jpg?width=1600" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+/* ============================================================
+   KAZANA SAFARIS TOURS — Itinerary Detail Page
+============================================================= */
+
+:root {
+  --forest: #16302A;
+  --forest-dark: #0D1F1A;
+  --olive: #3A4028;
+  --charcoal: #24211D;
+  --ivory: #FAF6EE;
+  --beige: #EAE0C9;
+  --sand: #D8C6A0;
+  --brown: #6B4A34;
+  --gold: #C7A052;
+  --gold-light: #E4C784;
+  --rust: #A3502E;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  --max-width: 1360px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--forest-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+em { font-style: italic; color: var(--gold); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.05rem 2.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), background 0.45s var(--ease), color 0.45s var(--ease);
+}
+.btn--gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--forest-dark);
+  box-shadow: 0 8px 24px -8px rgba(199, 160, 82, 0.55);
+}
+.btn--gold:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(199, 160, 82, 0.7); }
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 1.6rem 0;
+  background: rgba(22, 48, 42, 0.9);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px -18px rgba(0,0,0,0.5);
+  transition: padding 0.5s var(--ease);
+}
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo { display: flex; flex-direction: column; line-height: 1; }
+.nav__logo-mark { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ivory); }
+.nav__logo-sub { font-size: 0.55rem; letter-spacing: 0.32em; color: var(--gold-light); margin-top: 0.25rem; }
+.nav__links { display: flex; gap: 2.4rem; }
+.nav__links a {
+  font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ivory); position: relative; padding-bottom: 4px;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.4s var(--ease);
+}
+.nav__links a:hover::after { width: 100%; }
+.nav__actions { display: flex; align-items: center; gap: 1.4rem; }
+
+.hero {
+  padding-top: 9rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(135deg, rgba(22, 48, 42, 0.8), rgba(13, 31, 26, 0.8)),
+              url('https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_National_Park_15_-_landscape.jpg?width=1600') center / cover;
+  color: var(--ivory);
+  position: relative;
+}
+
+.hero__content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero__eyebrow { color: var(--gold-light); }
+.hero h1 {
+  color: var(--ivory);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  max-width: 600px;
+}
+.hero p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: rgba(250, 246, 238, 0.9);
+  line-height: 1.7;
+}
+
+.package-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.meta-item__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.meta-item__value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--ivory);
+}
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.section-head {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: var(--space-md);
+}
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.itinerary__day {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: rgba(250, 246, 238, 0.5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--gold);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.itinerary__day:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.itinerary__day-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  color: var(--forest-dark);
+}
+
+.itinerary__day-number {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.itinerary__day-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.itinerary__day-content p {
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+
+.itinerary__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.highlight-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--gold);
+  color: var(--forest-dark);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cta-section {
+  background: var(--forest);
+  color: var(--ivory);
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.cta-section__content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  color: var(--ivory);
+  margin-bottom: var(--space-md);
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-lg);
+  color: rgba(250, 246, 238, 0.9);
+}
+
+footer {
+  background: var(--forest-dark);
+  color: var(--ivory);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .itinerary__day {
+    grid-template-columns: 1fr;
+  }
+
+  .package-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__links { display: none; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================= -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__logo-mark">KAZANA</span>
+        <span class="nav__logo-sub">SAFARIS TOURS</span>
+      </a>
+      <div class="nav__actions">
+        <a href="../index.html#safaris" class="btn btn--gold btn--small">Back Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================= -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow" data-reveal>Luxury Experience</p>
+      <h1 data-reveal>Grand Luxury Safari</h1>
+      <p data-reveal>Savanna by day, ocean by night. Our fullest expression of Tanzania, closed out barefoot on white sand.</p>
+      
+      <div class="package-meta">
+        <div class="meta-item">
+          <span class="meta-item__label">Duration</span>
+          <span class="meta-item__value">7 Days</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Category</span>
+          <span class="meta-item__value">Luxury</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Best Time</span>
+          <span class="meta-item__value">Year-Round</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Destinations</span>
+          <span class="meta-item__value">3 Regions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ITINERARY SECTION
+  ============================================================= -->
+  <section class="section">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Your Journey</p>
+      <h2 data-reveal>Day by Day</h2>
+    </div>
+
+    <div class="itinerary">
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">1</span>
+          <span class="itinerary__day-title">Arrival & Serengeti</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Arrive at Kilimanjaro International Airport and connect to your charter flight to the Serengeti. 
+            Settle into your luxury lodge and enjoy an afternoon game drive through the endless plains. 
+            Watch the African savanna come alive as the sun paints the horizon gold.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Flight</span>
+            <span class="highlight-tag">Serengeti</span>
+            <span class="highlight-tag">Sunset</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">2</span>
+          <span class="itinerary__day-title">Serengeti Wildlife Safari</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Full day immersed in the Serengeti's legendary wildlife theater. 
+            Morning and afternoon game drives with your expert guide track predators, herbivores, and the intricate web of savanna life. 
+            Experience why this vast ecosystem is considered one of the world's greatest natural wonders.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Big Cats</span>
+            <span class="highlight-tag">Migration</span>
+            <span class="highlight-tag">Game Drives</span>
+            <span class="highlight-tag">Wildlife</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">3</span>
+          <span class="itinerary__day-title">Ngorongoro Crater</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Morning game drive in the Serengeti before transfer to Ngorongoro Crater. 
+            Descend into this UNESCO World Heritage Site, a massive natural amphitheater containing one of Earth's highest wildlife concentrations. 
+            Witness rhinos, lions, elephants, and buffalo in their self-contained ecosystem.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">UNESCO Site</span>
+            <span class="highlight-tag">Crater Floor</span>
+            <span class="highlight-tag">Rhinos</span>
+            <span class="highlight-tag">Endemic Species</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">4</span>
+          <span class="itinerary__day-title">Ngorongoro Deep Dive</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Spend another full day exploring the Ngorongoro Crater's diverse habitats — forests, grasslands, and soda lakes. 
+            Your guide will reveal the unique Maasai cultural presence and the crater's fascinating geology. 
+            Late afternoon, transfer to the Arusha region for your next adventure.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Crater Safari</span>
+            <span class="highlight-tag">Geology</span>
+            <span class="highlight-tag">Cultural</span>
+            <span class="highlight-tag">Soda Lakes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">5</span>
+          <span class="itinerary__day-title">Zanzibar Arrival</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Fly from Arusha to Zanzibar, trading the savanna for turquoise waters and white sand beaches. 
+            Arrive at your luxury beachfront resort and have the afternoon to settle in, swim, and acclimate to island time. 
+            Dinner overlooking the Indian Ocean marks the transition from bush to beach.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Flight</span>
+            <span class="highlight-tag">Beach</span>
+            <span class="highlight-tag">Ocean</span>
+            <span class="highlight-tag">Resort</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">6</span>
+          <span class="itinerary__day-title">Zanzibar Island Adventures</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Explore the magic of Zanzibar — the Spice Island. Visit historic Stone Town with its winding streets and Swahili architecture, 
+            snorkel pristine coral reefs teeming with tropical fish, or relax on powder-soft beaches. 
+            Optional sunset dhow cruise through coral gardens completes your day.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Stone Town</span>
+            <span class="highlight-tag">Snorkeling</span>
+            <span class="highlight-tag">Spice Tours</span>
+            <span class="highlight-tag">Dhow Cruise</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">7</span>
+          <span class="itinerary__day-title">Departure</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Your final morning on Zanzibar — swim, walk the beach, or enjoy a spa treatment at your resort. 
+            Afternoon transfer to the airport for your flight home, carrying memories of African wilderness and tropical paradise combined.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Beach Time</span>
+            <span class="highlight-tag">Relaxation</span>
+            <span class="highlight-tag">Departure</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HIGHLIGHTS & INCLUSIONS
+  ============================================================= -->
+  <section class="section" style="background: rgba(250, 246, 238, 0.5);">
+    <div class="section-head">
+      <h2 data-reveal>What's Included</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); max-width: 900px; margin: 0 auto;">
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🛫 Flights</h3>
+        <p>All charter flights between destinations and international airport</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🏨 Accommodation</h3>
+        <p>Luxury lodges and beachfront resort with premium suites</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🚙 Safari</h3>
+        <p>Daily 4x4 game drives with professional naturalist guides</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🍽️ Dining</h3>
+        <p>All meals, premium beverages, and select activities</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🏝️ Beach</h3>
+        <p>Private beach access, water sports, and island excursions</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🎒 Amenities</h3>
+        <p>Park fees, equipment, and all necessities included</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CALL TO ACTION
+  ============================================================= -->
+  <section class="cta-section">
+    <div class="cta-section__content">
+      <h2 data-reveal>The Ultimate Tanzania Experience</h2>
+      <p data-reveal>Savanna and ocean, wildlife and culture, adventure and relaxation — all in one extraordinary journey.</p>
+      <a href="../index.html#contact" class="btn btn--gold" data-reveal>Book Your Safari</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer>
+    <p>&copy; 2026 Kazana Safaris Tours. All rights reserved. | Luxury Tanzania Safari Experiences</p>
+  </footer>
+
+  <script>
+    // Reveal animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

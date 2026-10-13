@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../Kazana.Logo.png" />
+
+  <!-- ============ SEO META ============ -->
+  <title>Great Migration Safari | 8-Day Seasonal Safari | Kazana Safaris Tours</title>
+  <meta name="description" content="Great Migration Safari — an 8-day seasonal adventure timed to nature's greatest spectacle. Follow millions of wildebeest and zebras as they cross the Serengeti during the annual migration." />
+  <meta name="keywords" content="Great Migration, Serengeti, migration safari, wildebeest crossing, river crossing, seasonal safari" />
+  <meta name="author" content="Kazana Safaris Tours" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Great Migration Safari | 8-Day Seasonal Safari | Kazana Safaris Tours" />
+  <meta property="og:description" content="Timed to the herds — river crossings, predator drama, and the plains in full motion." />
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_wildebeest_migration_JF.jpg?width=1600" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+/* ============================================================
+   KAZANA SAFARIS TOURS — Itinerary Detail Page
+============================================================= */
+
+:root {
+  --forest: #16302A;
+  --forest-dark: #0D1F1A;
+  --olive: #3A4028;
+  --charcoal: #24211D;
+  --ivory: #FAF6EE;
+  --beige: #EAE0C9;
+  --sand: #D8C6A0;
+  --brown: #6B4A34;
+  --gold: #C7A052;
+  --gold-light: #E4C784;
+  --rust: #A3502E;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  --max-width: 1360px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--forest-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+em { font-style: italic; color: var(--gold); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.05rem 2.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), background 0.45s var(--ease), color 0.45s var(--ease);
+}
+.btn--gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--forest-dark);
+  box-shadow: 0 8px 24px -8px rgba(199, 160, 82, 0.55);
+}
+.btn--gold:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(199, 160, 82, 0.7); }
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 1.6rem 0;
+  background: rgba(22, 48, 42, 0.9);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px -18px rgba(0,0,0,0.5);
+  transition: padding 0.5s var(--ease);
+}
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo { display: flex; flex-direction: column; line-height: 1; }
+.nav__logo-mark { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ivory); }
+.nav__logo-sub { font-size: 0.55rem; letter-spacing: 0.32em; color: var(--gold-light); margin-top: 0.25rem; }
+.nav__links { display: flex; gap: 2.4rem; }
+.nav__links a {
+  font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ivory); position: relative; padding-bottom: 4px;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.4s var(--ease);
+}
+.nav__links a:hover::after { width: 100%; }
+.nav__actions { display: flex; align-items: center; gap: 1.4rem; }
+
+.hero {
+  padding-top: 9rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(135deg, rgba(22, 48, 42, 0.8), rgba(13, 31, 26, 0.8)),
+              url('https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_wildebeest_migration_JF.jpg?width=1600') center / cover;
+  color: var(--ivory);
+  position: relative;
+}
+
+.hero__content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero__eyebrow { color: var(--gold-light); }
+.hero h1 {
+  color: var(--ivory);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  max-width: 600px;
+}
+.hero p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: rgba(250, 246, 238, 0.9);
+  line-height: 1.7;
+}
+
+.package-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.meta-item__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.meta-item__value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--ivory);
+}
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.section-head {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: var(--space-md);
+}
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.itinerary__day {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: rgba(250, 246, 238, 0.5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--gold);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.itinerary__day:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.itinerary__day-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  color: var(--forest-dark);
+}
+
+.itinerary__day-number {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.itinerary__day-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.itinerary__day-content p {
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+
+.itinerary__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.highlight-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--gold);
+  color: var(--forest-dark);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cta-section {
+  background: var(--forest);
+  color: var(--ivory);
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.cta-section__content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  color: var(--ivory);
+  margin-bottom: var(--space-md);
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-lg);
+  color: rgba(250, 246, 238, 0.9);
+}
+
+footer {
+  background: var(--forest-dark);
+  color: var(--ivory);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .itinerary__day {
+    grid-template-columns: 1fr;
+  }
+
+  .package-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__links { display: none; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================= -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__logo-mark">KAZANA</span>
+        <span class="nav__logo-sub">SAFARIS TOURS</span>
+      </a>
+      <div class="nav__actions">
+        <a href="../index.html#safaris" class="btn btn--gold btn--small">Back Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================= -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow" data-reveal>Seasonal Spectacle</p>
+      <h1 data-reveal>Great Migration Safari</h1>
+      <p data-reveal>Timed to the herds — river crossings, predator drama, and the plains in full motion. Witness nature's greatest annual spectacle.</p>
+      
+      <div class="package-meta">
+        <div class="meta-item">
+          <span class="meta-item__label">Duration</span>
+          <span class="meta-item__value">8 Days</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Category</span>
+          <span class="meta-item__value">Seasonal</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Best Time</span>
+          <span class="meta-item__value">Jun - Oct</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Destinations</span>
+          <span class="meta-item__value">Serengeti</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ITINERARY SECTION
+  ============================================================= -->
+  <section class="section">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Your Journey</p>
+      <h2 data-reveal>Day by Day</h2>
+    </div>
+
+    <div class="itinerary">
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">1</span>
+          <span class="itinerary__day-title">Arrival & Western Serengeti</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Arrive at Kilimanjaro and connect to your charter flight to the western Serengeti, where the migration gathers. 
+            Settle into your lodge positioned for optimal viewing of the herds. 
+            Evening game drive introduces you to the mass movements and predators following the action.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Flight</span>
+            <span class="highlight-tag">Western Serengeti</span>
+            <span class="highlight-tag">Migration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">2</span>
+          <span class="itinerary__day-title">Migration Tracking</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Full day following the migration in real-time. Your guide uses knowledge of herd movements to position you for epic encounters. 
+            Witness millions of wildebeest and zebras creating dust clouds as they move across the plains. 
+            Predators circle — lions, hyenas, and wild dogs hunting the weak and young.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Wildebeest</span>
+            <span class="highlight-tag">Zebras</span>
+            <span class="highlight-tag">Predators</span>
+            <span class="highlight-tag">Herd Dynamics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">3</span>
+          <span class="itinerary__day-title">River Crossing Quest</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            The crown jewel of the Great Migration — the Grumeti and Mara River crossings. 
+            Position yourself for the dramatic moment when millions surge across crocodile-infested waters. 
+            Witness nature's raw drama as predators feast and the herd presses forward, driven by instinct.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">River Crossing</span>
+            <span class="highlight-tag">Crocodiles</span>
+            <span class="highlight-tag">Drama</span>
+            <span class="highlight-tag">Primal Nature</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">4</span>
+          <span class="itinerary__day-title">Central Serengeti Safari</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Move deeper into the Serengeti's central regions where the migration concentrates around water sources. 
+            Multi-day game drive tracking lions, cheetahs, and other predators capitalizing on the abundance. 
+            Your naturalist guide explains the ecological story unfolding around you.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Central Serengeti</span>
+            <span class="highlight-tag">Big Cats</span>
+            <span class="highlight-tag">Game Drive</span>
+            <span class="highlight-tag">Ecology</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">5</span>
+          <span class="itinerary__day-title">Predator & Prey Dynamics</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Spend another full day immersed in the Serengeti's predator-prey relationships. 
+            Follow prides of lions hunting buffalo, watch cheetahs pursue gazelles, and observe wild dogs on the hunt. 
+            Evening drives often yield unique nocturnal encounters — hyenas, jackals, and nocturnal birds.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Lions</span>
+            <span class="highlight-tag">Cheetahs</span>
+            <span class="highlight-tag">Wild Dogs</span>
+            <span class="highlight-tag">Hunt Sequences</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">6</span>
+          <span class="itinerary__day-title">Northern Serengeti Exploration</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Venture to the northern Serengeti as herds continue their annual cycle toward the Masai Mara in Kenya. 
+            Game drive through rolling hills and acacia forests, tracking remaining migration herds. 
+            This remote region offers intimate wildlife encounters far from crowds.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Northern Parks</span>
+            <span class="highlight-tag">Remote Serengeti</span>
+            <span class="highlight-tag">Intimate Encounters</span>
+            <span class="highlight-tag">Acacia Forests</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">7</span>
+          <span class="itinerary__day-title">Final Safari & Reflections</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            One last full day in the Serengeti to absorb all you've witnessed. 
+            Morning and afternoon game drives capture any wildlife moments you may have missed. 
+            Reflect on the incredible ecological cycle you've been privileged to observe firsthand.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Final Safari</span>
+            <span class="highlight-tag">Reflection</span>
+            <span class="highlight-tag">Last Encounters</span>
+            <span class="highlight-tag">Gratitude</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary__day" data-reveal>
+        <div class="itinerary__day-header">
+          <span class="itinerary__day-number">8</span>
+          <span class="itinerary__day-title">Departure</span>
+        </div>
+        <div class="itinerary__day-content">
+          <p>
+            Final morning in Africa — time permitting, one last sunrise game drive through the endless plains. 
+            Transfer to the airstrip for your charter flight to Kilimanjaro and onward journey home. 
+            You'll depart with indelible memories of Earth's greatest wildlife spectacle.
+          </p>
+          <div class="itinerary__highlights">
+            <span class="highlight-tag">Sunrise</span>
+            <span class="highlight-tag">Last Moments</span>
+            <span class="highlight-tag">Departure</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HIGHLIGHTS & INCLUSIONS
+  ============================================================= -->
+  <section class="section" style="background: rgba(250, 246, 238, 0.5);">
+    <div class="section-head">
+      <h2 data-reveal>What's Included</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); max-width: 900px; margin: 0 auto;">
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🛫 Flights</h3>
+        <p>All charter flights between parks and Kilimanjaro</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🏨 Accommodation</h3>
+        <p>8 nights in premium migration-trail lodges and camps</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🚙 Game Drives</h3>
+        <p>Daily 4x4 game drives with expert migration guides</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">🍽️ Meals</h3>
+        <p>All meals and premium beverages throughout</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">👨‍🍳 Guides</h3>
+        <p>Specialized naturalists with migration expertise</p>
+      </div>
+      <div data-reveal>
+        <h3 style="font-size: 1.2rem; margin-bottom: var(--space-sm);">📍 Positioning</h3>
+        <p>Strategic positioning for optimal migration encounters</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CALL TO ACTION
+  ============================================================= -->
+  <section class="cta-section">
+    <div class="cta-section__content">
+      <h2 data-reveal>Witness Nature's Greatest Spectacle</h2>
+      <p data-reveal>The Great Migration is a once-in-a-lifetime experience. Every moment reveals something extraordinary.</p>
+      <a href="../index.html#contact" class="btn btn--gold" data-reveal>Book Your Safari</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer>
+    <p>&copy; 2026 Kazana Safaris Tours. All rights reserved. | Luxury Tanzania Safari Experiences</p>
+  </footer>
+
+  <script>
+    // Reveal animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

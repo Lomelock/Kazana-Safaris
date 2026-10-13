@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Kazana Safaris Tours | Luxury Tanzania Safari Experiences" />
   <meta property="og:description" content="Bespoke luxury safaris across Tanzania. Private guides, rare landscapes, tailor-made journeys." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1547970810-dc1eac37d174?q=80&w=1600" />
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_National_Park_15_-_landscape.jpg?width=1600" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Fonts -->
@@ -276,6 +276,75 @@ em { font-style: italic; color: var(--gold); }
   transition: width 0.4s var(--ease);
 }
 .nav__links a:hover::after { width: 100%; }
+
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  color: var(--ivory);
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 0 4px;
+  position: relative;
+  cursor: pointer;
+}
+.nav__dropdown-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s var(--ease);
+}
+.nav__dropdown-toggle:hover::after,
+.nav__dropdown.is-open .nav__dropdown-toggle::after,
+.nav__dropdown:focus-within .nav__dropdown-toggle::after { width: 100%; }
+.nav__dropdown-menu {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1rem);
+  transform: translateX(-50%) translateY(12px);
+  min-width: 220px;
+  padding: 0.85rem 0.6rem;
+  background: rgba(22, 48, 42, 0.96);
+  border: 1px solid rgba(250, 246, 238, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px -22px rgba(0,0,0,0.8);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s var(--ease);
+}
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu,
+.nav__dropdown.is-open .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav__dropdown-menu a {
+  display: block;
+  padding: 0.72rem 0.9rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  border-radius: 10px;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.nav__dropdown-menu a:hover {
+  background: rgba(250, 246, 238, 0.06);
+  color: var(--gold-light);
+}
+.nav__dropdown-menu a::after { display: none; }
 
 .nav__actions { display: flex; align-items: center; gap: 1.4rem; }
 
@@ -720,65 +789,6 @@ em { font-style: italic; color: var(--gold); }
 }
 
 /* ============================================================
-   TESTIMONIALS
-============================================================= */
-.testimonials { padding: var(--space-2xl) 0; background: var(--beige); }
-.testimonial-slider { max-width: 780px; margin: 0 auto; padding: 0 var(--space-md); overflow: hidden; }
-.testimonial-track {
-  display: flex;
-  transition: transform 0.7s var(--ease);
-}
-.testimonial {
-  min-width: 100%;
-  text-align: center;
-  padding: 0 var(--space-sm);
-}
-.testimonial__stars { color: var(--gold); letter-spacing: 0.2em; margin-bottom: var(--space-sm); }
-.testimonial p {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-  font-style: italic;
-  color: var(--forest-dark);
-  margin-bottom: var(--space-md);
-}
-.testimonial footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-}
-.testimonial footer img {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.testimonial footer div { text-align: left; }
-.testimonial cite {
-  display: block;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-.testimonial footer span { font-size: 0.75rem; color: #8a8577; }
-
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: var(--space-lg);
-}
-.testimonial-dots button {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(22,48,42,0.25);
-  transition: background 0.4s var(--ease), transform 0.4s var(--ease);
-}
-.testimonial-dots button.is-active {
-  background: var(--gold);
-  transform: scale(1.3);
-}
-
-/* ============================================================
    CTA BANNER
 ============================================================= */
 .cta {
@@ -999,7 +1009,23 @@ em { font-style: italic; color: var(--gold); }
 
       <nav class="nav__links" aria-label="Primary navigation">
         <a href="#home">Home</a>
-        <a href="#destinations">Destinations</a>
+        <div class="nav__dropdown" id="destinationDropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="destinationMenu">
+            Destinations
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="nav__dropdown-menu" id="destinationMenu" role="menu" aria-label="Destination pages">
+            <a href="Destinations/serengeti.html" role="menuitem">Serengeti</a>
+            <a href="Destinations/ngorongoro.html" role="menuitem">Ngorongoro</a>
+            <a href="Destinations/tarangire.html" role="menuitem">Tarangire</a>
+            <a href="Destinations/short-circuit.html" role="menuitem">Short Circuit</a>
+            <a href="Destinations/lakenatron.html" role="menuitem">Lake Natron</a>
+            <a href="Destinations/zanzibar.html" role="menuitem">Zanzibar</a>
+            <a href="Destinations/northern-circuit.html" role="menuitem">Northern Circuit</a>
+            <a href="Destinations/great-migration.html" role="menuitem">Great Migration</a>
+            <a href="Destinations/grand-luxury.html" role="menuitem">Grand Luxury</a>
+          </div>
+        </div>
         <a href="#safaris">Safaris</a>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
@@ -1019,7 +1045,12 @@ em { font-style: italic; color: var(--gold); }
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Mobile navigation">
       <a href="#home">Home</a>
-      <a href="#destinations">Destinations</a>
+      <a href="Destinations/serengeti.html">Serengeti</a>
+      <a href="Destinations/ngorongoro.html">Ngorongoro</a>
+      <a href="Destinations/tarangire.html">Tarangire</a>
+      <a href="Destinations/short-circuit.html">Short Circuit</a>
+      <a href="Destinations/lakenatron.html">Lake Natron</a>
+      <a href="Destinations/zanzibar.html">Zanzibar</a>
       <a href="#safaris">Safaris</a>
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
@@ -1036,7 +1067,7 @@ em { font-style: italic; color: var(--gold); }
     <section class="hero" id="home">
       <div class="hero__media">
         <img
-          src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?q=80&w=2400&auto=format&fit=crop"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_National_Park_15_-_landscape.jpg?width=2000"
           alt="Golden light over the Serengeti plains at dawn, silhouetted acacia tree"
           class="hero__img"
         />
@@ -1077,7 +1108,7 @@ em { font-style: italic; color: var(--gold); }
       <div class="intro__inner">
         <div class="intro__image" data-reveal>
           <img
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1400&auto=format&fit=crop"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Ngorongoro_Crater_View1.jpg?width=1400"
             alt="Safari guide overlooking the plains from an open vehicle"
             loading="lazy"
           />
@@ -1138,7 +1169,7 @@ em { font-style: italic; color: var(--gold); }
       <div class="dest-grid">
 
         <a href="Destinations/serengeti.html" class="dest-card dest-card--large" data-reveal>
-          <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1400&auto=format&fit=crop" alt="Wildebeest herds crossing the endless Serengeti plains" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_wildebeest_migration_JF.jpg?width=1400" alt="Wildebeest on the Serengeti migration" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">02.3333° S, 34.8333° E</span>
             <h3>Serengeti</h3>
@@ -1147,7 +1178,7 @@ em { font-style: italic; color: var(--gold); }
         </a>
 
         <a href="Destinations/ngorongoro.html" class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200&auto=format&fit=crop" alt="View into the Ngorongoro Crater at sunrise" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ngorongoro_Crater_View1.jpg?width=1200" alt="View across the Ngorongoro Crater" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">03.2000° S, 35.5000° E</span>
             <h3>Ngorongoro</h3>
@@ -1155,26 +1186,26 @@ em { font-style: italic; color: var(--gold); }
           </div>
         </a>
 
-        <article class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?q=80&w=1200&auto=format&fit=crop" alt="Baobab trees in Tarangire National Park" loading="lazy" />
+        <a href="Destinations/tarangire.html" class="dest-card" data-reveal>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tarangire_scenery_with_baobabs.jpg?width=1200" alt="Baobab trees in Tarangire National Park" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">03.8333° S, 35.9167° E</span>
             <h3>Tarangire</h3>
             <p>Ancient baobabs and the largest elephant herds in northern Tanzania.</p>
           </div>
-        </article>
+        </a>
 
-        <article class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=1200&auto=format&fit=crop" alt="Flamingos wading in the pink waters of Lake Manyara" loading="lazy" />
+        <a href="Destinations/short-circuit.html" class="dest-card" data-reveal>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flamingos_at_Lake_Natron_(9)_(28551601446).jpg?width=1200" alt="Flamingos gathered on Lake Natron" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">03.5833° S, 35.7833° E</span>
             <h3>Lake Manyara</h3>
             <p>Alkaline waters, tree-climbing lions, and a wall of the Great Rift Valley.</p>
           </div>
-        </article>
+        </a>
 
         <a href="Destinations/lakenatron.html" class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?q=80&w=1200&auto=format&fit=crop" alt="Volcanic shoreline of Lake Natron at dusk" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Natron,_Tanzania.jpg?width=1200" alt="Lake Natron in northern Tanzania" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">02.4167° S, 36.0000° E</span>
             <h3>Lake Natron</h3>
@@ -1182,14 +1213,14 @@ em { font-style: italic; color: var(--gold); }
           </div>
         </a>
 
-        <article class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200&auto=format&fit=crop" alt="Turquoise water and dhow boat off the coast of Zanzibar" loading="lazy" />
+        <a href="Destinations/zanzibar.html" class="dest-card" data-reveal>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dhow_boat_Zanzibar.jpg?width=1200" alt="A dhow boat off the coast of Zanzibar" loading="lazy" />
           <div class="dest-card__overlay">
             <span class="dest-card__coord">06.1659° S, 39.2026° E</span>
             <h3>Zanzibar</h3>
             <p>Spice-scented alleys and Indian Ocean shores to close your journey in stillness.</p>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
@@ -1306,74 +1337,29 @@ em { font-style: italic; color: var(--gold); }
 
       <div class="wildlife-grid">
         <figure class="wildlife-tile wildlife-tile--tall" data-reveal>
-          <img src="https://images.unsplash.com/photo-1602491453631-e2a5ad90a131?q=80&w=1200&auto=format&fit=crop" alt="A lioness resting on the savanna, one of the Big Five" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lion_(Panthera_leo)_female_Serengeti_2.jpg?width=1200" alt="A lioness in the Serengeti" loading="lazy" />
           <figcaption>Big Five</figcaption>
         </figure>
         <figure class="wildlife-tile" data-reveal>
-          <img src="https://images.unsplash.com/photo-1516616370751-86d6394bfa2a?q=80&w=1200&auto=format&fit=crop" alt="Wildebeest and zebra herds during the Great Migration" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_wildebeest_migration_JF.jpg?width=1200" alt="Wildebeest during the Great Migration in the Serengeti" loading="lazy" />
           <figcaption>Great Migration</figcaption>
         </figure>
         <figure class="wildlife-tile" data-reveal>
-          <img src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?q=80&w=1200&auto=format&fit=crop" alt="A flock of flamingos wading in shallow alkaline water" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flamingos_at_Lake_Natron_(9)_(28551601446).jpg?width=1200" alt="Flamingos on Lake Natron" loading="lazy" />
           <figcaption>Flamingos</figcaption>
         </figure>
         <figure class="wildlife-tile" data-reveal>
-          <img src="https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1200&auto=format&fit=crop" alt="A family of elephants walking together at dusk" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elephants,_Tarangire_National_Park_(5)_(28671103666).jpg?width=1200" alt="Elephants in Tarangire National Park" loading="lazy" />
           <figcaption>Elephants</figcaption>
         </figure>
         <figure class="wildlife-tile" data-reveal>
-          <img src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?q=80&w=1200&auto=format&fit=crop" alt="A tree-climbing lion resting in the branches of an acacia" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lion_(Panthera_leo)_female_Serengeti_2.jpg?width=1200" alt="A lioness in the Serengeti" loading="lazy" />
           <figcaption>Tree-Climbing Lions</figcaption>
         </figure>
         <figure class="wildlife-tile wildlife-tile--tall" data-reveal>
-          <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=1200&auto=format&fit=crop" alt="The volcanic slopes of Oldonyo Lengai at sunset" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lengai_from_Natron.jpg?width=1200" alt="Oldonyo Lengai above the Lake Natron area" loading="lazy" />
           <figcaption>Oldonyo Lengai</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         TESTIMONIALS
-    ============================================================= -->
-    <section class="testimonials">
-      <div class="section-head">
-        <p class="eyebrow" data-reveal>Guest Reflections</p>
-        <h2 data-reveal>Stories From The Bush</h2>
-      </div>
-
-      <div class="testimonial-slider" id="testimonialSlider">
-        <div class="testimonial-track" id="testimonialTrack">
-
-          <blockquote class="testimonial">
-            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Kazana didn't just show us Tanzania — they made us feel like we belonged there. Every detail, from the guide to the golden-hour stops, was considered."</p>
-            <footer>
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Portrait of guest Amara O." loading="lazy" />
-              <div><cite>Amara O.</cite><span>London, United Kingdom</span></div>
-            </footer>
-          </blockquote>
-
-          <blockquote class="testimonial">
-            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Seven days, zero compromises. Our guide anticipated things we didn't know to ask for. This is what luxury safari should be."</p>
-            <footer>
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="Portrait of guest James H." loading="lazy" />
-              <div><cite>James H.</cite><span>Austin, USA</span></div>
-            </footer>
-          </blockquote>
-
-          <blockquote class="testimonial">
-            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"We watched the migration cross the Mara from a private vantage point Kazana arranged. I still think about it every day."</p>
-            <footer>
-              <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=200&auto=format&fit=crop" alt="Portrait of guest Sofia R." loading="lazy" />
-              <div><cite>Sofia R.</cite><span>Barcelona, Spain</span></div>
-            </footer>
-          </blockquote>
-
-        </div>
-
-        <div class="testimonial-dots" id="testimonialDots"></div>
       </div>
     </section>
 
@@ -1382,7 +1368,7 @@ em { font-style: italic; color: var(--gold); }
     ============================================================= -->
     <section class="cta">
       <div class="cta__bg">
-        <img src="https://images.unsplash.com/photo-1516934024742-b461ee5a67dc?q=80&w=2000&auto=format&fit=crop" alt="Silhouette of acacia trees against a fiery Tanzanian sunset" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Serengeti_National_Park_15_-_landscape.jpg?width=1800" alt="Landscape in Serengeti National Park" loading="lazy" />
         <div class="cta__gradient"></div>
       </div>
       <div class="cta__content">
@@ -1472,10 +1458,13 @@ em { font-style: italic; color: var(--gold); }
         <h4>Destinations</h4>
         <a href="Destinations/serengeti.html">Serengeti</a>
         <a href="Destinations/ngorongoro.html">Ngorongoro</a>
-        <a href="#destinations">Tarangire</a>
-        <a href="#destinations">Lake Manyara</a>
-        <a href="#destinations">Zanzibar</a>
+        <a href="Destinations/tarangire.html">Tarangire</a>
+        <a href="Destinations/short-circuit.html">Lake Manyara</a>
+        <a href="Destinations/zanzibar.html">Zanzibar</a>
         <a href="Destinations/lakenatron.html">Lake Natron</a>
+        <a href="Destinations/northern-circuit.html">Northern Circuit</a>
+        <a href="Destinations/great-migration.html">Great Migration</a>
+        <a href="Destinations/grand-luxury.html">Grand Luxury</a>
       </div>
 
       <div class="footer__col">
@@ -1512,7 +1501,7 @@ em { font-style: italic; color: var(--gold); }
 /* ============================================================
    KAZANA SAFARIS TOURS — Homepage Interactivity
    Sections: Preloader, Nav scroll/mobile menu, Reveal-on-scroll,
-   Counter animation, Testimonial slider, Contact/newsletter forms,
+  Counter animation, Contact/newsletter forms,
    Back-to-top
 ============================================================= */
 
@@ -1549,6 +1538,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ---------------------------------------------------------- */
   const burger = document.getElementById("navBurger");
   const mobileMenu = document.getElementById("mobileMenu");
+  const destinationDropdown = document.getElementById("destinationDropdown");
+  const destinationToggle = document.querySelector(".nav__dropdown-toggle");
 
   const closeMenu = () => {
     burger.setAttribute("aria-expanded", "false");
@@ -1566,6 +1557,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mobileMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
+  });
+
+  destinationToggle?.addEventListener("click", () => {
+    const isOpen = destinationDropdown.classList.toggle("is-open");
+    destinationToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!destinationDropdown?.contains(event.target)) {
+      destinationDropdown?.classList.remove("is-open");
+      destinationToggle?.setAttribute("aria-expanded", "false");
+    }
   });
 
   /* ----------------------------------------------------------
@@ -1628,41 +1631,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.5 }
   );
   counters.forEach((el) => counterObserver.observe(el));
-
-  /* ----------------------------------------------------------
-     TESTIMONIAL SLIDER
-  ---------------------------------------------------------- */
-  const track = document.getElementById("testimonialTrack");
-  const dotsWrap = document.getElementById("testimonialDots");
-  const slides = track ? Array.from(track.children) : [];
-  let activeSlide = 0;
-  let slideTimer;
-
-  if (track && slides.length) {
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.setAttribute("aria-label", `Show testimonial ${i + 1}`);
-      if (i === 0) dot.classList.add("is-active");
-      dot.addEventListener("click", () => goToSlide(i));
-      dotsWrap.appendChild(dot);
-    });
-
-    function goToSlide(index) {
-      activeSlide = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${activeSlide * 100}%)`;
-      Array.from(dotsWrap.children).forEach((dot, i) =>
-        dot.classList.toggle("is-active", i === activeSlide)
-      );
-      resetTimer();
-    }
-
-    function resetTimer() {
-      clearInterval(slideTimer);
-      slideTimer = setInterval(() => goToSlide(activeSlide + 1), 6000);
-    }
-
-    resetTimer();
-  }
 
   /* ----------------------------------------------------------
      BACK TO TOP
