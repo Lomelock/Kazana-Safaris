@@ -547,26 +547,6 @@ em { font-style: italic; color: var(--gold); }
   margin-bottom: var(--space-sm);
   max-width: 540px;
 }
-.intro__stats {
-  display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: var(--space-md);
-}
-.stat__num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  color: var(--forest);
-}
-.stat__label {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #8a8577;
-}
-
 /* ============================================================
    MIGRATION TRAIL DIVIDER — signature element
 ============================================================= */
@@ -977,7 +957,6 @@ em { font-style: italic; color: var(--gold); }
   .dest-card--large { grid-column: span 1; }
   .wildlife-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
   .footer__top { grid-template-columns: 1fr; }
-  .intro__stats { flex-wrap: wrap; gap: var(--space-md); }
   .hero__actions { flex-direction: column; width: 100%; }
   .hero__actions .btn { width: 100%; justify-content: center; }
   .footer__bottom { flex-direction: column; gap: 0.4rem; }
@@ -1129,20 +1108,6 @@ em { font-style: italic; color: var(--gold); }
             but for character. This is safari as it was meant to feel: unhurried,
             authentic, and quietly extraordinary.
           </p>
-          <div class="intro__stats" data-reveal>
-            <div class="stat">
-              <span class="stat__num" data-count="14">0</span>
-              <span class="stat__label">Years Guiding</span>
-            </div>
-            <div class="stat">
-              <span class="stat__num" data-count="6200">0</span>
-              <span class="stat__label">Guests Hosted</span>
-            </div>
-            <div class="stat">
-              <span class="stat__num" data-count="98">0</span>
-              <span class="stat__label">% Return Rate</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1501,7 +1466,7 @@ em { font-style: italic; color: var(--gold); }
 /* ============================================================
    KAZANA SAFARIS TOURS — Homepage Interactivity
    Sections: Preloader, Nav scroll/mobile menu, Reveal-on-scroll,
-  Counter animation, Contact/newsletter forms,
+  Contact/newsletter forms,
    Back-to-top
 ============================================================= */
 
@@ -1599,38 +1564,6 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.transitionDelay = `${(i % 4) * 90}ms`;
     revealObserver.observe(el);
   });
-
-  /* ----------------------------------------------------------
-     COUNTER ANIMATION — animate stats when in view
-  ---------------------------------------------------------- */
-  const counters = document.querySelectorAll("[data-count]");
-  const animateCount = (el) => {
-    const target = parseInt(el.getAttribute("data-count"), 10);
-    const duration = 1600;
-    const start = performance.now();
-
-    const step = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      // ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target).toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  counters.forEach((el) => counterObserver.observe(el));
 
   /* ----------------------------------------------------------
      BACK TO TOP
